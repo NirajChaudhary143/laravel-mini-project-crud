@@ -33,6 +33,8 @@ Route::middleware('auth','admin')->group(function(){
     Route::get('/admin-panel-add-product',[IndexController::class,'addProduct'])->name('addProduct');
     Route::post('/admin-panel-add-product',[IndexController::class,'storeProduct'])->name('storeProduct');
     Route::get('/admin-panel-delete-product/{id}',[IndexController::class,'deleteProduct'])->name('deleteProduct');
+    Route::get('/admin-panel-edit-product/{id}',[IndexController::class,'editView'])->name('editView');
+    Route::post('/admin-panel-edit-product/{id}',[IndexController::class,'update'])->name('update');
 });
 
 

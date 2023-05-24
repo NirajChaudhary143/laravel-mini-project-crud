@@ -25,28 +25,28 @@
 @endif
 <br>
 
-    <a href="{{route('addProduct')}}">Add Products</a>
-    <table>
+    <a href="{{route('addProduct')}}"><h3><strong>Add Product</strong></h3></a>
+    <table style="border-collapse: collapse; width:30%; border:1px solid;text-align:center" >
         
-        <tr>
-            <th>ID</th>
-            <th>Product Name</th>
-            <th>Category</th>
-            <th>Action</th>
+        <tr style="border:1px solid">
+            <th style="border:1px solid">ID</th>
+            <th style="border:1px solid">Product Name</th>
+            <th style="border:1px solid">Category</th>
+            <th style="border:1px solid">Action</th>
         </tr>
         @foreach($products as $product)
-        <tr>
-            <td>{{$product->product_id}}</td>
-            <td>{{$product->product_name}}</td>
+        <tr style="border:1px solid">
+            <td style="border:1px solid">{{$product->product_id}}</td>
+            <td style="border:1px solid">{{$product->product_name}}</td>
             @if($product->category_id==1)
-            <td>Fruits</td>
+            <td style="border:1px solid">Fruits</td>
             @elseif($product->category_id==2)
-            <td>Vegitables</td>
+            <td style="border:1px solid">Vegitables</td>
 
             @endif
-            <td>
-                <a href="{{route('deleteProduct',['id'=>$product->product_id])}}">Delete</a>
-                <a href="#">Edit</a>
+            <td style="border:1px solid">
+                <a style="border-right:1px solid;padding-right:5px" href="{{route('deleteProduct',['id'=>$product->product_id])}}">Delete</a>
+                <a href="{{route('editView',['id'=>$product->product_id])}}">Edit</a>
             </td>
         </tr>
         @endforeach
