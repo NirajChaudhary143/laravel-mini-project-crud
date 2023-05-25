@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\User;
 use GuzzleHttp\RetryMiddleware;
 use Illuminate\Http\Request;
 
@@ -11,6 +12,7 @@ class IndexController extends Controller
     public function index(){
         $products = Product::with('category')->get();
         $customers = Category::with('products')->get();
+        // $username = auth()->user()->name;
         return view('dashboard',compact('products','customers'));
     }
     public function addProduct(){
