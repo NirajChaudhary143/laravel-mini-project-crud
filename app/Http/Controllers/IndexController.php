@@ -7,6 +7,7 @@ use App\Models\User;
 use GuzzleHttp\RetryMiddleware;
 use Illuminate\Http\Request;
 
+
 class IndexController extends Controller
 {
     public function index(){

@@ -59,6 +59,28 @@
             </ul>          
           </li>
           <li class="nav-item">
+            <a href="{{ route('profile.edit') }}" class="nav-link">
+              <i class="nav-icon fa fa-user"></i>
+              <p>
+                Profile
+                <!-- <i class="right fas fa-angle-left"></i> -->
+              </p>
+            </a>
+          </li>
+          <!-- <li class="nav-item">
+            <a href="{{ route('profile.edit') }}" >
+              
+                <form action="{{ route('logout') }}" method="POST">
+                <button type="submit" class="btn nav-link ml-0">
+                  <i class="nav-icon fas fa-sign-out-alt"></i>
+                  <span>Log Out</span>
+               </button>
+                </form>
+                <i class="right fas fa-angle-left"></i>
+              
+            </a>
+          </li> -->
+          <li class="nav-item">
           <form action="{{ route('logout') }}" method="POST" class="nav-link">
             @csrf
             <button type="submit" class="btn btn-link">
@@ -68,6 +90,7 @@
           </form>
 
           </li>
+          
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
