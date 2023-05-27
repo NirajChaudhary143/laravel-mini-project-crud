@@ -35,7 +35,15 @@ Route::middleware('auth','admin')->group(function(){
     Route::get('/admin-panel-delete-product/{id}',[IndexController::class,'deleteProduct'])->name('deleteProduct');
     Route::get('/admin-panel-edit-product/{id}',[IndexController::class,'editView'])->name('editView');
     Route::post('/admin-panel-edit-product/{id}',[IndexController::class,'update'])->name('update');
+    Route::get('/yajra-productget',[IndexController::class,'getProduct'])->name('product.get');
+    
 });
 
+
+// Testing Yajra Data Table Routes
+use App\Http\Controllers\TestYajraDataTable;
+
+Route::get('/yajra-product',[TestYajraDataTable::class,'product']);
+Route::get('/yajra-getproduct',[TestYajraDataTable::class,'getProductData'])->name('get.product');
 
 require __DIR__.'/auth.php';

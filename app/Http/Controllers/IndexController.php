@@ -6,16 +6,33 @@ use App\Models\Product;
 use App\Models\User;
 use GuzzleHttp\RetryMiddleware;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 
 
 class IndexController extends Controller
 {
     public function index(){
-        $products = Product::with('category')->get();
-        $customers = Category::with('products')->get();
+        // $products = Product::with('category')->get();
+        // $customers = Category::with('products')->get();
         // $username = auth()->user()->name;
-        return view('dashboard',compact('products','customers'));
+        return view('dashboard');
     }
+    public function getProduct(){
+        return Datatables::of(Product::query())->make(true);
+
+        // if($request->ajax()){
+        //     $data = Product::latest()->get();
+        //     return Datatables::of($data)
+        //     ->addIndexColumn()
+        //     ->addColumn('action',function($row){
+        //         $actionBtn = '<a href="javascript:void(0);" class="edit btn btn-success btn-sm">Edit</a> <a href="javascript:void(0);" class="edit btn btn-danger btn-sm">Delete</a>';
+        //         return $actionBtn;
+        //     })
+        //     ->rowColumns(['action'])
+        //     ->make(true);
+        // }
+    }
+
     public function addProduct(){
         return view('addProduct');
     }

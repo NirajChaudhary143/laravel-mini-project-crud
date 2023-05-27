@@ -1,16 +1,21 @@
-@extends('layouts.base')
-
-  
-@section('main-content')
-
-<div class="container">
-               <h2>Products</h2>
+<html lang="en">
+<head>
+    <title>Laravel DataTables Tutorial Example</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">  
+        <link  href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+</head>
+      <body>
+         <div class="container">
+               <h2>Laravel DataTables Tutorial Example</h2>
             <table class="table table-bordered" id="table">
                <thead>
                   <tr>
                     <th>S.N</th>
                      <th>Product Id</th>
-                     <th>Product Name</th>
+                     <th>Product</th>
                      <th>Category</th>
                      <th>Action</th>
                   </tr>
@@ -22,7 +27,7 @@
                $('#table').DataTable({
                processing: true,
                serverSide: true,
-               ajax: "{{ route('product.get') }}",
+               ajax: "{{ route('get.product') }}",
                columns: [
                                     { 
                             data: 'DT_RowIndex', 
@@ -48,8 +53,8 @@
                                 orderable: false,
                                 searchable: false,
                                 render: function(data, type, row) {
-                                    var editBtn = '<a href="edit/' + row.product_id + '" class="btn btn-success btn-sm">Edit</a>';
-                                    var deleteBtn = '<a href="delete/' + row.product_id + '" class="btn btn-danger btn-sm">Delete</a>';
+                                    var editBtn = '<a href="admin-panel-edit-product/' + row.product_id + '" class="btn btn-success btn-sm">Edit</a>';
+                                    var deleteBtn = '<a href="admin-panel-delete-product/' + row.product_id + '" class="btn btn-danger btn-sm">Delete</a>';
                                     return editBtn + ' ' + deleteBtn;
                                 }
                             },
@@ -59,37 +64,5 @@
             });
          });
          </script>
-<!-- 
-<table class="table table-dark">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table> -->
-
-  @endsection
-
+   </body>
+</html>

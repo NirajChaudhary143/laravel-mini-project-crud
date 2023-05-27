@@ -194,7 +194,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Yajra\Datatables\DatatablesServiceProvider::class,
+        yajra\Datatables\DatatablesServiceProvider::class,
 
     ],
 
@@ -211,7 +211,7 @@ return [
 
     'aliases' => [
         // ...
-        'Datatables' => Yajra\Datatables\Facades\Datatables::class,
+        'Datatables' => yajra\Datatables\Datatables::class,
     ]
 
 ];
